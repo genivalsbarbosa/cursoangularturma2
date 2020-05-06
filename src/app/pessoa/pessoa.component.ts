@@ -9,7 +9,14 @@ export class PessoaComponent implements OnInit {
 
   titulo: string = 'Cadastro titulo';
 
+  codigo: string = ''
   nome: string = 'Genival';
+  telefone: string = '';
+  dataNascimento: string = '';
+  endereco: string = '';
+  bairro: string = '';
+  cidade: string = '';
+  estado: string = '';
 
   constructor() { }
 
@@ -17,7 +24,15 @@ export class PessoaComponent implements OnInit {
   }
 
   imprimir(){    
-    alert(this.nome);
+    alert(`${this.codigo}
+    ${this.nome}
+    ${this.telefone}
+    ${this.dataNascimento}
+    ${this.endereco}
+    ${this.bairro}
+    ${this.cidade}
+    ${this.estado}
+    `);
   }
 
 }
