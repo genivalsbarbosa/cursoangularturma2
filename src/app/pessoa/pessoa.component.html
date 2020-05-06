@@ -1,0 +1,13 @@
+<app-layout>
+    <p>{{titulo}}</p>
+    <h3 [textContent]="titulo"></h3>
+
+    <label>Nome:</label>
+    <input type="text" [(ngModel)]="nome"/>    
+
+    <br/>
+    <br/>
+    <button (click)="imprimir()">Imprimir</button>
+
+</app-layout>
+
