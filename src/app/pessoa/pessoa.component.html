@@ -1,36 +1,58 @@
-<app-layout>
+<button (click)="cadastroPessoa()">Cadastro Pessoa</button>
+
+<app-layout *ngIf="mostrarCadastroPessoa">    
+
     <p>{{titulo}}</p>
+
+
+    <table border="1">        
+        <thead>
+            <th>Codigo</th>
+            <th>Nome</th>
+        </thead>
+        <tr *ngFor="let pessoa of listaPessoas">
+            <td>{{pessoa.codigo}}</td>
+            <td>{{pessoa.nome}}</td>
+        </tr>        
+    </table>
+
+
+
     <h3 [textContent]="titulo"></h3>
 
     <label>Codigo:</label>
-    <input type="text" [(ngModel)]="codigo"/>    
+    <input type="text" [(ngModel)]="pessoa.codigo"/>    
     <br/>
     <label>Nome:</label>
-    <input type="text" [(ngModel)]="nome"/>
+    <input type="text" [(ngModel)]="pessoa.nome"/>
     <br/>
     <label>Telefone:</label>
-    <input type="text" [(ngModel)]="telefone"/>
+    <input type="text" [(ngModel)]="pessoa.telefone"/>
     <br/>
     <label>Data de Nascimento:</label>
-    <input type="text" [(ngModel)]="dataNascimento"/>
+    <input type="text" [(ngModel)]="pessoa.dataNascimento"/>
     <br/>
     <label>Endereço:</label>
-    <input type="text" [(ngModel)]="endereco"/>
+    <input type="text" [(ngModel)]="pessoa.endereco"/>
     <br/>
     <label>Bairro:</label>
-    <input type="text" [(ngModel)]="bairro"/>
+    <input type="text" [(ngModel)]="pessoa.bairro"/>
     <br/>
     <label>Cidade:</label>
-    <input type="text" [(ngModel)]="cidade"/>
+    <input type="text" [(ngModel)]="pessoa.cidade"/>
     <br/>
     <label>Estado:</label>
-    <input type="text" [(ngModel)]="estado"/>
+    <select [(ngModel)]="pessoa.estado">
+        <option *ngFor="let estado of listaEstado" [ngValue]="estado.codigo">{{estado.nome}}</option>
+    </select>    
 
     
 
     <br/>
     <br/>
     <button (click)="imprimir()">Imprimir</button>
+    <button (click)="incluir()">Incluir</button>
+    
 
 </app-layout>
 
