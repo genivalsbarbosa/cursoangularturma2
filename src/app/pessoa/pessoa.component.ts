@@ -12,15 +12,9 @@ export class PessoaComponent implements OnInit {
 
   pessoa: Pessoa = new Pessoa();
 
-  listaPessoas: Pessoa[] = [
-    {codigo: '1' ,nome: 'Genival', telefone: '9999' , 
-      dataNascimento: '99/99/99', endereco: 'avenida', bairro: 'bairro', 
-      cidade: 'cidade', estado: 'estado'},
-    {codigo: '2' ,nome: 'Jose', telefone: '9999' , 
-      dataNascimento: '99/99/99', endereco: 'avenida', bairro: 'bairro', 
-      cidade: 'cidade', estado: 'estado'}
+  listaPessoas: Pessoa[] = [];
 
-  ];
+  mostrarBotaoSalvarAlteracao: boolean = false;
 
   listaEstado: any[] = [
     {codigo:'PE', nome: 'Pernambuco'},
@@ -37,6 +31,34 @@ export class PessoaComponent implements OnInit {
 
   incluir(){
     this.listaPessoas.push(this.pessoa);
+    this.pessoa = new Pessoa();    
+  }
+
+  alterar(pessoa){
+    this.pessoa = pessoa;
+    this.mostrarBotaoSalvarAlteracao = true;
+  }
+
+  salvarAlteracao(){
+    this.pessoa = new Pessoa();
+    this.mostrarBotaoSalvarAlteracao = false;
+  }
+
+  excluir(pessoa){
+    this.listaPessoas = this.listaPessoas.filter(
+      obj => obj !== pessoa
+    );
+
+    /* pseudocodigo do filter de cima
+    let temp;
+    for(p of listaPessoa)  {
+      if(p !== pessoa){
+        temp.push(p);
+      }
+    }
+    this.listaPessoas = temp;
+    */
+
   }
 
   imprimir(){ 
