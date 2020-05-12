@@ -79,9 +79,9 @@
 
     <br/>
     <br/>
-    <button (click)="imprimir()">Imprimir</button>
-    <button *ngIf="!mostrarBotaoSalvarAlteracao" (click)="incluir()">Incluir</button>
-    <button *ngIf="mostrarBotaoSalvarAlteracao" (click)="salvarAlteracao()">Alterar</button>
+    <app-button (clique)="imprimir()" nome="Imprimir"></app-button>    
+    <app-button *ngIf="!mostrarBotaoSalvarAlteracao" (clique)="incluir()" nome="Incluir"></app-button>
+    <app-button *ngIf="mostrarBotaoSalvarAlteracao" (clique)="salvarAlteracao()" nome="Alterar"></app-button>
     
 
 </app-layout>

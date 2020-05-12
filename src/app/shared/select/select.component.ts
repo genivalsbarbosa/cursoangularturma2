@@ -9,14 +9,11 @@ export class SelectComponent implements OnInit {
 
   @Input('nome') nome: string = '';
   @Input('opcoes') opcoes: any[] = [];
-  @Input('valorInicial') valorInicial: any;
+  @Input('valorInicial') valorInicial: string;
   @Output('valorRetorno') valorRetorno: EventEmitter<string> = new EventEmitter();
-
   constructor() { }
-
   ngOnInit(): void {
   }
-
   retornarValor(){
     this.valorRetorno.emit(this.valorInicial);
   }
