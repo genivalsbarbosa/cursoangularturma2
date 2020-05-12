@@ -10,6 +10,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { ContaComponent } from './conta/conta.component';
+import { InputtextoComponent } from './shared/inputtexto/inputtexto.component';
+import { SelectComponent } from './shared/select/select.component';
+import { ButtonComponent } from './shared/button/button.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { ContaComponent } from './conta/conta.component';
     LayoutComponent,
     PessoaComponent,
     RodapeComponent,
-    ContaComponent
+    ContaComponent,
+    InputtextoComponent,
+    SelectComponent,
+    ButtonComponent
   ],
   imports: [    
     FormsModule,

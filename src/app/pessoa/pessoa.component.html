@@ -9,12 +9,24 @@
         <thead>
             <th>Codigo</th>
             <th>Nome</th>
+            <th>Telefone</th>
+            <th>Data Nascimento</th>
+            <th>Endereço</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
             <th></th>
             <th></th>
         </thead>
         <tr *ngFor="let pessoa of listaPessoas">
             <td>{{pessoa.codigo}}</td>
             <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.telefone}}</td>
+            <td>{{pessoa.dataNascimento}}</td>
+            <td>{{pessoa.endereco}}</td>
+            <td>{{pessoa.bairro}}</td>
+            <td>{{pessoa.cidade}}</td>
+            <td>{{pessoa.estado}}</td>
             <td><a style="cursor: pointer;" (click)="alterar(pessoa)">Alterar</a></td>
             <td><a style="cursor: pointer;" (click)="excluir(pessoa)">Excluir</a></td>
         </tr>        
@@ -24,32 +36,45 @@
 
     <h3 [textContent]="titulo"></h3>
 
-    <label>Codigo:</label>
-    <input type="text" [(ngModel)]="pessoa.codigo"/>    
-    <br/>
-    <label>Nome:</label>
-    <input type="text" [(ngModel)]="pessoa.nome"/>
-    <br/>
-    <label>Telefone:</label>
-    <input type="text" [(ngModel)]="pessoa.telefone"/>
-    <br/>
-    <label>Data de Nascimento:</label>
-    <input type="text" [(ngModel)]="pessoa.dataNascimento"/>
-    <br/>
-    <label>Endereço:</label>
-    <input type="text" [(ngModel)]="pessoa.endereco"/>
-    <br/>
-    <label>Bairro:</label>
-    <input type="text" [(ngModel)]="pessoa.bairro"/>
-    <br/>
-    <label>Cidade:</label>
-    <input type="text" [(ngModel)]="pessoa.cidade"/>
-    <br/>
-    <label>Estado:</label>
-    <select [(ngModel)]="pessoa.estado">
-        <option *ngFor="let estado of listaEstado" [ngValue]="estado.codigo">{{estado.nome}}</option>
-    </select>    
+    
+    <app-inputtexto nome="Codigo:" 
+        [valorInicial]="pessoa.codigo"
+        (valorRetorno)="pessoa.codigo=$event"
+        tipo="text">
+    </app-inputtexto>
+        
+    <app-inputtexto nome="Nome:" 
+        [valorInicial]="pessoa.nome"
+        (valorRetorno)="pessoa.nome=$event">
+    </app-inputtexto>
+    
+    <app-inputtexto nome="Telefone:" 
+        [valorInicial]="pessoa.telefone"
+        (valorRetorno)="pessoa.telefone=$event">
+    </app-inputtexto>   
 
+    <app-inputtexto nome="Data Nascimento:" 
+        [valorInicial]="pessoa.dataNascimento"
+        (valorRetorno)="pessoa.dataNascimento=$event"
+        tipo="date">
+    </app-inputtexto> 
+       
+    <app-inputtexto nome="Endereço:" 
+        [valorInicial]="pessoa.endereco"
+        (valorRetorno)="pessoa.endereco=$event">
+    </app-inputtexto>
+
+    <app-inputtexto nome="Bairro:" 
+        [valorInicial]="pessoa.bairro"
+        (valorRetorno)="pessoa.bairro=$event">
+    </app-inputtexto>
+    
+    <app-inputtexto nome="Cidade:" 
+        [valorInicial]="pessoa.cidade"
+        (valorRetorno)="pessoa.cidade=$event">
+    </app-inputtexto>
+    
+    <app-select nome="Estado:" [opcoes]="listaEstado" [valorInicial]="pessoa.estado" (valorRetorno)="pessoa.estado=$event"></app-select>    
     
 
     <br/>

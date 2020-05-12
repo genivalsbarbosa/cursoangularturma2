@@ -12,7 +12,7 @@ export class PessoaComponent implements OnInit {
 
   pessoa: Pessoa = new Pessoa();
 
-  listaPessoas: Pessoa[] = [];
+  listaPessoas: Pessoa[] = [];  
 
   mostrarBotaoSalvarAlteracao: boolean = false;
 
@@ -77,6 +77,6 @@ export class PessoaComponent implements OnInit {
   
   cadastroPessoa(){
     this.mostrarCadastroPessoa = !this.mostrarCadastroPessoa;
-  }
+  }  
 
 }
